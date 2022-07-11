@@ -7,7 +7,8 @@ class player:
                  strength, #int
                  attractiveness, #int
                  iq, #int
-                 fertility #int
+                 fertility, #int
+                 friendliness #int - how likely the player is to be friendly (mate, share) vs start conflict with another player
                  ):
         self.sex = sex
         self.strength = strength
