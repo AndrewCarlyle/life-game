@@ -1,14 +1,15 @@
-from random import randint
+import random
+import player
 
 class player:
     #define player attributes
     def __init__(self,
-                 sex, #char ('M' or 'F')
-                 strength, #int
-                 attractiveness, #int
-                 iq, #int
-                 fertility, #int
-                 friendliness #int - how likely the player is to be friendly (mate, share) vs start conflict with another player
+                 sex=random.choice(['M', 'F']), #char ('M' or 'F')
+                 strength=random.normalvariate(5, 1.5), #int
+                 attractiveness=random.normalvariate(5, 1.5), #int
+                 iq=random.normalvariate(100, 15), #int
+                 fertility=random.normalvariate(5, 1.5), #int
+                 friendliness=random.normalvariate(5, 1.5), #int - how likely the player is to be friendly (mate, share) vs start conflict with another player
                  ):
         self.sex = sex
         self.strength = strength
@@ -26,7 +27,7 @@ class player:
         if self.sex != 'F' or player.sex != 'M':
             return False
 
-        num = randint(1, 10)
+        num = random.randint(1, 10)
 
         if self.fertility * player.fertility > num:
             return True

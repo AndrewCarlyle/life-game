@@ -13,7 +13,7 @@ def main():
 
     plr = player.player(1,1,1,1,1)
 
-    #wd = world.World(NUM_PLAYERS, NUM_FOOD)
+    #wd = world.world(NUM_PLAYERS, NUM_FOOD)
 
 if __name__ == "__main__":
     main()
