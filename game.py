@@ -8,8 +8,9 @@ NUM_FOOD = 50
 
 def main():
     #init players
+    playerList = []
     for i in range(NUM_PLAYERS):
-        sex = random.choice(['M', 'F'])
+        playerList.append(player.player())
 
     plr = player.player(1,1,1,1,1)
 
