@@ -18,14 +18,17 @@ class world:
 
         #Randomly assign player to a place in the world
         for player in players:
-            x = randint(0, X_SIZE)
-            y = randint(0, Y_SIZE)
+            x = randint(0, X_SIZE-1)
+            y = randint(0, Y_SIZE-1)
 
             self.world[x][y].append([player])
 
+        self.addFood(numFood)
+
+    def addFood(self, numFood):
         #Add food to the world
         for i in range(numFood):
-            x = randint(0, X_SIZE)
-            y = randint(0, Y_SIZE)
+            x = randint(0, X_SIZE-1)
+            y = randint(0, Y_SIZE-1)
 
             self.world[x][y].append("food")
