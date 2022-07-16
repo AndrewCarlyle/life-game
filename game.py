@@ -10,9 +10,12 @@ def main():
     #init players
     playerList = []
     for i in range(NUM_PLAYERS):
-        playerList.append(player.player())
+        playerList.append(player.Player())
 
-    wd = world.world(playerList, NUM_FOOD)
+    wd = world.World(playerList, NUM_FOOD)
+
+    for p in playerList:
+        p.move()
 
 if __name__ == "__main__":
     main()

@@ -1,7 +1,6 @@
 import random
-import player
 
-class player:
+class Player:
     #define player attributes
     def __init__(self,
                  sex=random.choice(['M', 'F']), #char ('M' or 'F')
