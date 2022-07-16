@@ -3,8 +3,8 @@ import world
 import random
 
 #Default settings to start the game
-NUM_PLAYERS = 100
-NUM_FOOD = 50
+NUM_PLAYERS = 5
+NUM_FOOD = 5
 
 def main():
     #init players
