@@ -62,4 +62,17 @@ class World:
             self.world[player.X][player.Y].append(player)
 
     def print(self):
-        print(self.world)
+        for row in self.world:
+            str=""
+
+            for column in row:
+                if len(column) > 1:
+                    str += "M"
+                elif column == ["food"]:
+                    str += "F"
+                elif column == []:
+                    str += "-"
+                else:
+                    str += "P"
+
+            print(str)

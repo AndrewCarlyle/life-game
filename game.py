@@ -14,8 +14,7 @@ def main():
 
     wd = world.World(playerList, NUM_FOOD)
 
-    for p in playerList:
-        p.move()
+    wd.print()
 
 if __name__ == "__main__":
     main()
