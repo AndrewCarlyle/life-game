@@ -32,21 +32,34 @@ class World:
             self.world[x][y].append("food")
 
     def addPlayer(self, player, x=randint(0, X_SIZE-1), y=randint(0, Y_SIZE-1)):
+        player.X = x
+        player.Y = y
+
         self.world[x][y].append(player)
         self.playerList.append(player)
 
-    def movePlayers():
+    def movePlayers(self):
         for player in self.playerList:
+            #Remove player from old position
+            self.world[player.X][player.Y].remove(player)
+
             direction = randint(1,4)
 
             #move up
             if direction == 1:
-
+                player.Y -= player.speed
             #move right
             elif direction == 2:
-
+                player.X += player.speed
             #move down
             elif direction == 3:
-
+                player.Y += player.speed
             #move left
             else:
+                player.X -= player.speed
+
+            #Add player to new location
+            self.world[player.X][player.Y].append(player)
+
+    def print(self):
+        print(self.world)
