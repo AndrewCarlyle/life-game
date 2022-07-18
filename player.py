@@ -20,6 +20,8 @@ class Player:
 
         self.hunger = 0
         self.age = 0
+        self.X = 0
+        self.Y = 0
 
     def getOlder(self):
         self.age = self.age + 1
