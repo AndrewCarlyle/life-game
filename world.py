@@ -47,17 +47,16 @@ class World:
 
             #move up
             if direction == 1:
-                player.Y -= player.speed
+                player.Y = max(player.Y - player.speed, 0)
             #move right
             elif direction == 2:
-                player.X += player.speed
+                player.X = min(player.X + player.speed, X_SIZE-1)
             #move down
             elif direction == 3:
-                player.Y += player.speed
+                player.Y = min(player.Y + player.speed, Y_SIZE-1)
             #move left
             else:
-                player.X -= player.speed
-
+                player.X = max(player.X - player.speed, 0)
             #Add player to new location
             self.world[player.X][player.Y].append(player)
 
