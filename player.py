@@ -4,12 +4,12 @@ class Player:
     #define player attributes
     def __init__(self,
                  sex=random.choice(['M', 'F']), #char ('M' or 'F')
-                 speed=random.normalvariate(5, 1.5), #int
-                 strength=random.normalvariate(5, 1.5), #int
-                 attractiveness=random.normalvariate(5, 1.5), #int
-                 iq=random.normalvariate(100, 15), #int
-                 fertility=random.normalvariate(5, 1.5), #int
-                 friendliness=random.normalvariate(5, 1.5), #int - how likely the player is to be friendly (mate, share) vs start conflict with another player
+                 speed=round(random.normalvariate(5, 1.5)), #int
+                 strength=round(random.normalvariate(5, 1.5)), #int
+                 attractiveness=round(random.normalvariate(5, 1.5)), #int
+                 iq=round(random.normalvariate(100, 15)), #int
+                 fertility=round(random.normalvariate(5, 1.5)), #int
+                 friendliness=round(random.normalvariate(5, 1.5)), #int - how likely the player is to be friendly (mate, share) vs start conflict with another player
                  ):
         self.sex = sex
         self.speed = speed
