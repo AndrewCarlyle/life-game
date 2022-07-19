@@ -36,3 +36,9 @@ class Player:
             return True
         else:
             return False
+
+    def moveDecision(self, world):
+        foodInRange = []
+        playersInRange = []
+
+        #Loop through squares within vision
