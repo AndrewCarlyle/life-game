@@ -1,20 +1,20 @@
 from random import randint
 
-X_SIZE = 25
-Y_SIZE = 25
-
 #class used to keep track of the players/food using a data structure
 #The data strucutre is a 3D list, which represents a 2D world, where each place
 #in the world has a list of player food (the list for a space can be empty)
 class World:
-    def __init__(self, players, numFood):
+    def __init__(self, players, numFood, xSize=25, ySize=25):
         self.world = []
         self.playerList = []
 
+        self.xSize = xSize
+        self.ySize = ySize
+
         #init the 3D list
-        for x in range(X_SIZE):
+        for x in range(xSize):
             self.world.append([])
-            for y in range(Y_SIZE):
+            for y in range(ySize):
                 self.world[x].append([])
 
         #Randomly assign player to a place in the world
@@ -26,12 +26,12 @@ class World:
     def addFood(self, numFood):
         #Add food to the world
         for i in range(numFood):
-            x = randint(0, X_SIZE-1)
-            y = randint(0, Y_SIZE-1)
+            x = randint(0, xSize-1)
+            y = randint(0, ySize-1)
 
             self.world[x][y].append("food")
 
-    def addPlayer(self, player, x=randint(0, X_SIZE-1), y=randint(0, Y_SIZE-1)):
+    def addPlayer(self, player, x=randint(0, xSize-1), y=randint(0, ySize-1)):
         player.X = x
         player.Y = y
 
@@ -50,10 +50,10 @@ class World:
                 player.Y = max(player.Y - player.speed, 0)
             #move right
             elif direction == 2:
-                player.X = min(player.X + player.speed, X_SIZE-1)
+                player.X = min(player.X + player.speed, xSize-1)
             #move down
             elif direction == 3:
-                player.Y = min(player.Y + player.speed, Y_SIZE-1)
+                player.Y = min(player.Y + player.speed, ySize-1)
             #move left
             else:
                 player.X = max(player.X - player.speed, 0)
