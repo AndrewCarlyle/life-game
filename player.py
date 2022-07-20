@@ -41,4 +41,13 @@ class Player:
         foodInRange = []
         playersInRange = []
 
-        #Loop through squares within vision
+        #Loop through squares within range
+        for x in range(max(0, self.x-self.speed), min(self.x+self.speed)):
+            remainingRange = self.speed - abs(self.x - x)
+            for y in range(max(0, self.y-remainingRange), min(self.x+remainingRange)):
+                for item in world[x][y]:
+                    if item == "food":
+                        obj = {"x": x, "y": y, "distance": abs(self.x - x) + abs(self.y - y)}
+                        foodInRange.append(obj)
+                    else:
+                        obj = {"x": x, "y": y, "player": item, "distance": abs(self.x - x) + abs(self.y - y)}
