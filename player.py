@@ -44,6 +44,7 @@ class Player:
         playersInRange = []
 
         #Loop through squares within range
+        #TODO: add code to prevent going out of range
         for x in range(max(0, self.x-self.speed), min(self.x+self.speed)):
             remainingRange = self.speed - abs(self.x - x)
             for y in range(max(0, self.y-remainingRange), min(self.x+remainingRange)):
