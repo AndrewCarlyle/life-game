@@ -37,6 +37,8 @@ class Player:
         else:
             return False
 
+    #Function to have a player decide where to move
+    #Returns a tuple (X,Y), where either can be + or -
     def moveDecision(self, world):
         foodInRange = []
         playersInRange = []
@@ -51,3 +53,18 @@ class Player:
                         foodInRange.append(obj)
                     else:
                         obj = {"x": x, "y": y, "player": item, "distance": abs(self.x - x) + abs(self.y - y)}
+
+        if foodInRange:
+            closest = foodInRange[0]
+
+            for food in foodInRange:
+                if food.distance < closest.distance:
+                    closest = food
+
+            return (closest.x - self.x, closest.y - self.y)
+        else:
+            #random direction/distance
+            x = random.randint(-self.speed, self.speed)
+            y = random.randint(-self.speed + x, self.speed - x)
+
+            return (x,y)
