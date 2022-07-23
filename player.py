@@ -44,28 +44,34 @@ class Player:
         playersInRange = []
 
         #Loop through squares within range
-        #TODO: add code to prevent going out of range
-        for x in range(max(0, self.x-self.speed), min(self.x+self.speed)):
-            remainingRange = self.speed - abs(self.x - x)
-            for y in range(max(0, self.y-remainingRange), min(self.x+remainingRange)):
-                for item in world[x][y]:
+        for x in range(max(0, self.X-self.speed), min(self.X+self.speed, world.xSize-1)):
+            remainingRange = self.speed - abs(self.X - x)
+            for y in range(max(0, self.Y-remainingRange), min(self.Y+remainingRange, world.ySize-1)):
+                for item in world.world[x][y]:
                     if item == "food":
-                        obj = {"x": x, "y": y, "distance": abs(self.x - x) + abs(self.y - y)}
+                        obj = {"x": x, "y": y, "distance": abs(self.X - x) + abs(self.Y - y)}
                         foodInRange.append(obj)
                     else:
-                        obj = {"x": x, "y": y, "player": item, "distance": abs(self.x - x) + abs(self.y - y)}
+                        obj = {"x": x, "y": y, "player": item, "distance": abs(self.X - x) + abs(self.Y - y)}
 
         if foodInRange:
             closest = foodInRange[0]
 
             for food in foodInRange:
-                if food.distance < closest.distance:
+                if food["distance"] < closest["distance"]:
                     closest = food
 
-            return (closest.x - self.x, closest.y - self.y)
+            return (closest["x"] - self.X, closest["y"] - self.Y)
         else:
+            print("random...")
             #random direction/distance
             x = random.randint(-self.speed, self.speed)
+            print("x:" ,x)
             y = random.randint(-self.speed + x, self.speed - x)
+            print("y:" ,y)
 
             return (x,y)
+
+    def setLocation(self, x, y):
+        self.X = x
+        self.Y = y

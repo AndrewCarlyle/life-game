@@ -26,14 +26,21 @@ class World:
     def addFood(self, numFood):
         #Add food to the world
         for i in range(numFood):
-            x = randint(0, xSize-1)
-            y = randint(0, ySize-1)
+            x = randint(0, self.xSize-1)
+            y = randint(0, self.ySize-1)
 
             self.world[x][y].append("food")
 
-    def addPlayer(self, player, x=randint(0, xSize-1), y=randint(0, ySize-1)):
-        player.X = x
-        player.Y = y
+    def addPlayer(self, player, x=-1, y=-1):
+        if x == -1:
+            x = randint(0, self.xSize-1)
+
+        if y == -1:
+            y=randint(0, self.ySize-1)
+
+        #player.X = x
+        #player.Y = y
+        player.setLocation(x, y)
 
         self.world[x][y].append(player)
         self.playerList.append(player)
@@ -44,10 +51,10 @@ class World:
             self.world[player.X][player.Y].remove(player)
 
             move = player.moveDecision(self)
-
+            print("Player moving from: (", player.X, ",", player.Y, ") to (", min(max(move[0], 0), self.xSize-1), ",", min(max(move[1], 0), self.ySize-1), ")")
             #update player X/Y, ensure player is still within array by use min/max
-            player.X = min(max(move[0], 0), xSize-1)
-            player.Y = min(max(move[1], 0), ySize-1)
+            player.X = min(max(move[0], 0), self.xSize-1)
+            player.Y = min(max(move[1], 0), self.ySize-1)
 
             '''direction = randint(1,4)
 
