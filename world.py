@@ -51,13 +51,14 @@ class World:
             self.world[player.X][player.Y].remove(player)
 
             move = player.moveDecision(self)
-            
+
             #update player X/Y, ensure player is still within array by use min/max
             player.X = min(max(move[0] + player.X, 0), self.xSize-1)
             player.Y = min(max(move[1] + player.Y, 0), self.ySize-1)
 
             #Add player to new location
             self.world[player.X][player.Y].append(player)
+            player.energy -= abs(move[0]) + abs(move[1])
 
     def print(self):
         for row in self.world:
@@ -74,3 +75,7 @@ class World:
                     str += "P"
 
             print(str)
+
+    def increaseHunger(self):
+        for player in self.playerList:
+            player.hunger += 1

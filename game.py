@@ -17,6 +17,7 @@ def main():
     wd.print()
     print("\nEnd of turn\n")
     wd.movePlayers()
+    wd.increaseHunger()
     wd.print()
 
 if __name__ == "__main__":
