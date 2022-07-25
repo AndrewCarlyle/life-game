@@ -79,3 +79,14 @@ class World:
     def increaseHunger(self):
         for player in self.playerList:
             player.hunger += 1
+
+    #Checks to see if a player has landed (collided) with food or another player
+    def checkCollisions(self):
+        for player in self.playerList:
+            if len(self.world[player.X][player.Y]) > 1:
+                for item in self.world[player.X][player.Y]:
+                    #player eats the food
+                    if item == "food":
+                        #Resets to zero for now, but could just go down by a certain amount (or varying amount --> different food)
+                        player.hunger = 0
+                        player.energy += 10
