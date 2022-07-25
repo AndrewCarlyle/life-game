@@ -14,11 +14,13 @@ def main():
 
     wd = world.World(playerList, NUM_FOOD)
 
-    wd.print()
-    print("\nEnd of turn\n")
-    wd.movePlayers()
-    wd.increaseHunger()
-    wd.print()
+    while True:
+        wd.print()
+        print("\nEnd of turn\n")
+        wd.movePlayers()
+        wd.increaseHunger()
+        wd.addFood(1)
+        break
 
 if __name__ == "__main__":
     main()
