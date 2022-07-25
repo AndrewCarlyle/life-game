@@ -17,10 +17,11 @@ def main():
 
     for i in range(NUM_ROUNDS):
         wd.print()
-        print("\nEnd of turn\n")
-        wd.movePlayers()
         wd.increaseHunger()
+        wd.movePlayers()
+        wd.checkCollisions()
         wd.addFood(1)
+        print("\nEnd of turn\n")
 
 if __name__ == "__main__":
     main()
