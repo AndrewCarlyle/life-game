@@ -51,25 +51,11 @@ class World:
             self.world[player.X][player.Y].remove(player)
 
             move = player.moveDecision(self)
-            print("Player moving from: (", player.X, ",", player.Y, ") to (", min(max(move[0], 0), self.xSize-1), ",", min(max(move[1], 0), self.ySize-1), ")")
+            
             #update player X/Y, ensure player is still within array by use min/max
-            player.X = min(max(move[0], 0), self.xSize-1)
-            player.Y = min(max(move[1], 0), self.ySize-1)
+            player.X = min(max(move[0] + player.X, 0), self.xSize-1)
+            player.Y = min(max(move[1] + player.Y, 0), self.ySize-1)
 
-            '''direction = randint(1,4)
-
-            #move up
-            if direction == 1:
-                player.Y = max(player.Y - player.speed, 0)
-            #move right
-            elif direction == 2:
-                player.X = min(player.X + player.speed, xSize-1)
-            #move down
-            elif direction == 3:
-                player.Y = min(player.Y + player.speed, ySize-1)
-            #move left
-            else:
-                player.X = max(player.X - player.speed, 0)'''
             #Add player to new location
             self.world[player.X][player.Y].append(player)
 

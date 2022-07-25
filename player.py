@@ -63,12 +63,9 @@ class Player:
 
             return (closest["x"] - self.X, closest["y"] - self.Y)
         else:
-            print("random...")
             #random direction/distance
             x = random.randint(-self.speed, self.speed)
-            print("x:" ,x)
             y = random.randint(-self.speed + x, self.speed - x)
-            print("y:" ,y)
 
             return (x,y)
 
