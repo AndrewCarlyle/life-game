@@ -5,6 +5,7 @@ import random
 #Default settings to start the game
 NUM_PLAYERS = 5
 NUM_FOOD = 5
+NUM_ROUNDS = 5
 
 def main():
     #init players
@@ -14,13 +15,12 @@ def main():
 
     wd = world.World(playerList, NUM_FOOD)
 
-    while True:
+    for i in range(NUM_ROUNDS):
         wd.print()
         print("\nEnd of turn\n")
         wd.movePlayers()
         wd.increaseHunger()
         wd.addFood(1)
-        break
 
 if __name__ == "__main__":
     main()
