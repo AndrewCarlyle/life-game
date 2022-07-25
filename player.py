@@ -19,6 +19,7 @@ class Player:
         self.fertility = fertility
 
         self.hunger = 0
+        self.energy = 75
         self.age = 0
         self.X = 0
         self.Y = 0
