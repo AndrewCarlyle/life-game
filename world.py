@@ -80,8 +80,8 @@ class World:
         for player in self.playerList:
             player.hunger += 1
 
-    #Checks to see if a player has landed (collided) with food or another player
-    def checkCollisions(self):
+    #Checks to see if a player has landed on food
+    def checkFood(self):
         for player in self.playerList:
             if len(self.world[player.X][player.Y]) > 1:
                 for item in self.world[player.X][player.Y]:
@@ -94,6 +94,14 @@ class World:
                         self.world[player.X][player.Y].remove(item)
 
                         break
+
+    #Checks to see if a player has landed on (collided) another player
+    def checkCollisions(self):
+        for player in self.playerList:
+            if len(self.world[player.X][player.Y]) > 1:
+                for item in self.world[player.X][player.Y]:
+                    if item != "food":
+                        #Players may choose to fight or remain friendly
 
     def checkDeath(self):
         for player in self.playerList:

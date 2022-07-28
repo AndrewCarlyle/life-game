@@ -20,6 +20,7 @@ def main():
         wd.increaseHunger()
         wd.movePlayers()
         wd.checkCollisions()
+        wd.checkFood()
         wd.checkDeath()
         wd.addFood(1)
         print("\nEnd of turn: ", i, "\n")
