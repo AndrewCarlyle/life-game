@@ -102,6 +102,11 @@ class World:
                 for item in self.world[player.X][player.Y]:
                     if item != "food":
                         #Players may choose to fight, reproduce or remain friendly
+                        result = player.reproduce(item)
+
+                        if result != False:
+                            self.addPlayer(result, player.X, player.Y)
+                            print("Adding new player...")
 
     def checkDeath(self):
         for player in self.playerList:
