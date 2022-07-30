@@ -23,6 +23,7 @@ def main():
         wd.checkFood()
         wd.checkDeath()
         wd.addFood(1)
+        wd.agePlayers()
         print("\nEnd of turn: ", i, "\n")
 
     wd.print()

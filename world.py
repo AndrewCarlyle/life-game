@@ -101,7 +101,7 @@ class World:
             if len(self.world[player.X][player.Y]) > 1:
                 for item in self.world[player.X][player.Y]:
                     if item != "food":
-                        #Players may choose to fight or remain friendly
+                        #Players may choose to fight, reproduce or remain friendly
 
     def checkDeath(self):
         for player in self.playerList:
@@ -111,3 +111,7 @@ class World:
                 print("Hunger: ", player.hunger)
                 self.world[player.X][player.Y].remove(player)
                 self.playerList.remove(player)
+
+    def agePlayers(self):
+        for player in self.playerList:
+            player.getOlder()
