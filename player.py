@@ -28,13 +28,18 @@ class Player:
         self.age = self.age + 1
 
     def reproduce(self, player):
-        if self.sex != 'F' or player.sex != 'M':
+        if self.sex == player.sex:
             return False
 
         num = random.randint(1, 10)
 
-        if self.fertility * player.fertility > num:
-            return True
+        if (self.fertility + player.fertility) / 2 > num:
+            return Player(speed=(self.speed+player.speed)/2 + random.randint(-1, 1),
+                          strength=(self.strength+player.strength)/2 + random.randint(-1, 1),
+                          attractiveness=(self.attractiveness+player.attractiveness)/2 + random.randint(-1, 1),
+                          iq=(self.iq+player.iq)/2 + random.randint(-10, 10),
+                          fertility=(self.fertility+player.fertility)/2 + random.randint(-1, 1),
+                          friendliness=(self.friendliness+player.friendliness)/2 + random.randint(-1, 1),)
         else:
             return False
 
