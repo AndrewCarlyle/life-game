@@ -3,20 +3,31 @@ import random
 class Player:
     #define player attributes
     def __init__(self,
-                 sex=random.choice(['M', 'F']), #char ('M' or 'F')
-                 speed=round(random.normalvariate(5, 1.5)), #int
-                 strength=round(random.normalvariate(5, 1.5)), #int
-                 attractiveness=round(random.normalvariate(5, 1.5)), #int
-                 iq=round(random.normalvariate(100, 15)), #int
-                 fertility=round(random.normalvariate(5, 1.5)), #int
-                 friendliness=round(random.normalvariate(5, 1.5)), #int - how likely the player is to be friendly (mate, share) vs start conflict with another player
+                 rand,
+                 sex=None, #char ('M' or 'F')
+                 speed=None,#=round(random.normalvariate(5, 1.5)), #int
+                 strength=None, #int
+                 attractiveness=None, #int
+                 iq=None, #int
+                 fertility=None, #int
+                 friendliness=None, #int - how likely the player is to be friendly (mate, share) vs start conflict with another player
                  ):
-        self.sex = sex
-        self.speed = speed
-        self.strength = strength
-        self.attractiveness = attractiveness
-        self.iq = iq
-        self.fertility = fertility
+        if rand:
+            self.sex = random.choice(['M', 'F'])
+            self.speed = round(random.normalvariate(5, 1.5))
+            self.strength = round(random.normalvariate(5, 1.5))
+            self.attractiveness = round(random.normalvariate(5, 1.5))
+            self.iq = round(random.normalvariate(100, 15))
+            self.fertility = round(random.normalvariate(5, 1.5))
+            self.friendliness = round(random.normalvariate(5, 1.5))
+        else:
+            self.sex = sex
+            self.speed = speed
+            self.strength = strength
+            self.attractiveness = attractiveness
+            self.iq = iq
+            self.fertility = fertility
+            self.friendliness = friendliness
 
         self.hunger = 0
         self.energy = 75
