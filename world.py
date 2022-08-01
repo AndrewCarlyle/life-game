@@ -109,12 +109,16 @@ class World:
     def checkDeath(self):
         for player in self.playerList:
             if player.hunger >= 10 or player.energy <= 0:
-                print("Player has died...")
-                print("Energy: ", player.energy)
-                print("Hunger: ", player.hunger)
+                #print("Player has died...")
+                #print("Energy: ", player.energy)
+                #print("Hunger: ", player.hunger)
                 self.world[player.X][player.Y].remove(player)
                 self.playerList.remove(player)
 
     def agePlayers(self):
         for player in self.playerList:
             player.getOlder()
+
+    def resetReproduce(self):
+        for player in self.playerList:
+            player.reproduceStatus = False

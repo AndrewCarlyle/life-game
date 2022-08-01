@@ -31,6 +31,7 @@ class Player:
 
         self.hunger = 0
         self.energy = 75
+        self.reproduceStatus = True
         self.age = 0
         self.X = 0
         self.Y = 0
@@ -39,18 +40,22 @@ class Player:
         self.age = self.age + 1
 
     def reproduce(self, player):
-        if self.sex == player.sex:
+        if self.sex == player.sex or self.reproduceStatus or player.reproduceStatus:
             return False
 
         num = random.randint(1, 10)
 
         if (self.fertility + player.fertility) / 2 > num:
-            return Player(speed=(self.speed+player.speed)/2 + random.randint(-1, 1),
-                          strength=(self.strength+player.strength)/2 + random.randint(-1, 1),
-                          attractiveness=(self.attractiveness+player.attractiveness)/2 + random.randint(-1, 1),
-                          iq=(self.iq+player.iq)/2 + random.randint(-10, 10),
-                          fertility=(self.fertility+player.fertility)/2 + random.randint(-1, 1),
-                          friendliness=(self.friendliness+player.friendliness)/2 + random.randint(-1, 1),)
+            self.reproduceStatus = True
+            player.reproduceStatus = True
+
+            return Player(False,
+                          speed=round((self.speed+player.speed)/2 + random.randint(-1, 1)),
+                          strength=round((self.strength+player.strength)/2 + random.randint(-1, 1)),
+                          attractiveness=round((self.attractiveness+player.attractiveness)/2 + random.randint(-1, 1)),
+                          iq=round((self.iq+player.iq)/2 + random.randint(-10, 10)),
+                          fertility=round((self.fertility+player.fertility)/2 + random.randint(-1, 1)),
+                          friendliness=round((self.friendliness+player.friendliness)/2 + random.randint(-1, 1)),)
         else:
             return False
 

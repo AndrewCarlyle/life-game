@@ -3,19 +3,19 @@ import world
 import random
 
 #Default settings to start the game
-NUM_PLAYERS = 5
-NUM_FOOD = 5
+NUM_PLAYERS = 10
+NUM_FOOD = 10
 NUM_ROUNDS = 20
 
 def main():
     #init players
     playerList = []
     for i in range(NUM_PLAYERS):
-        playerList.append(player.Player(rand=True))
+        playerList.append(player.Player(True))
 
     wd = world.World(playerList, NUM_FOOD)
 
-    for i in range(NUM_ROUNDS):
+    for i in range(1,NUM_ROUNDS+1):
         #wd.print()
         wd.increaseHunger()
         wd.movePlayers()
@@ -24,7 +24,8 @@ def main():
         wd.checkDeath()
         wd.addFood(1)
         wd.agePlayers()
-        #print("\nEnd of turn: ", i, "\n")
+        wd.resetReproduce()
+        print("End of turn: ", i)
 
     wd.print()
     print("End of game...")
