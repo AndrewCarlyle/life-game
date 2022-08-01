@@ -38,8 +38,6 @@ class World:
         if y == -1:
             y=randint(0, self.ySize-1)
 
-        #player.X = x
-        #player.Y = y
         player.setLocation(x, y)
 
         self.world[x][y].append(player)

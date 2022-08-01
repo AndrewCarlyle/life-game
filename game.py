@@ -11,7 +11,7 @@ def main():
     #init players
     playerList = []
     for i in range(NUM_PLAYERS):
-        playerList.append(player.Player())
+        playerList.append(player.Player(rand=True))
 
     wd = world.World(playerList, NUM_FOOD)
 
@@ -24,7 +24,7 @@ def main():
         wd.checkDeath()
         wd.addFood(1)
         wd.agePlayers()
-        print("\nEnd of turn: ", i, "\n")
+        #print("\nEnd of turn: ", i, "\n")
 
     wd.print()
     print("End of game...")
