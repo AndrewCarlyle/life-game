@@ -91,6 +91,16 @@ class Player:
 
             return (x,y)
 
+    #When two players are in the same square, they must decide to fight, mate, or be friendly
+    def interactionDecision(self, player):
+        num = random.randint(1, 10)
+
+        #Players decide to mate, return 'M' for mate
+        if self.sex != player.sex and self.attractiveness >= num and player.attractiveness >= num:
+            return 'M'
+
+
+
     def setLocation(self, x, y):
         self.X = x
         self.Y = y

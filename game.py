@@ -25,6 +25,7 @@ def main():
         wd.addFood(4)
         wd.agePlayers()
         wd.resetReproduce()
+        
         print("End of turn: ", i)
 
         if result:
