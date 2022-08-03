@@ -3,9 +3,9 @@ import world
 import random
 
 #Default settings to start the game
-NUM_PLAYERS = 10
-NUM_FOOD = 10
-NUM_ROUNDS = 20
+NUM_PLAYERS = 20
+NUM_FOOD = 20
+NUM_ROUNDS = 100
 
 def main():
     #init players
@@ -21,11 +21,15 @@ def main():
         wd.movePlayers()
         wd.checkCollisions()
         wd.checkFood()
-        wd.checkDeath()
-        wd.addFood(1)
+        result = wd.checkDeath()
+        wd.addFood(4)
         wd.agePlayers()
         wd.resetReproduce()
         print("End of turn: ", i)
+
+        if result:
+            print("Game over, all players are dead...")
+            break
 
     wd.print()
     print("End of game...")
