@@ -1,5 +1,7 @@
 import random
 
+PLAYER_NUM = 1
+
 class Player:
     #define player attributes
     def __init__(self,
@@ -35,6 +37,10 @@ class Player:
         self.age = 0
         self.X = 0
         self.Y = 0
+
+        global PLAYER_NUM
+        self.num = PLAYER_NUM
+        PLAYER_NUM += 1
 
     def getOlder(self):
         self.age = self.age + 1
@@ -93,13 +99,26 @@ class Player:
 
     #When two players are in the same square, they must decide to fight, mate, or be friendly
     def interactionDecision(self, player):
-        num = random.randint(1, 10)
+        Mnum = random.normalvariate(5, 1.5)
+        Fnum = random.normalvariate(5, 1.5)
 
         #Players decide to mate, return 'M' for mate
-        if self.sex != player.sex and self.attractiveness >= num and player.attractiveness >= num:
+        if self.sex != player.sex and self.attractiveness >= Mnum and player.attractiveness >= Mnum:
             return 'M'
+        #One or both players decide to fight, return 'F' for fight
+        elif self.friendliness < Fnum or player.friendliness < Fnum:
+            return 'F'
 
+    #Determines the outcome when two player decide to fight, returns the loser
+    def fight(self, player):
+        #Modify the players strength but +/- 1
+        p1Mod = random.randint(-1,1)
+        p2Mod = random.randint(-1,1)
 
+        if self.strength + p1Mod > player.strength + p2Mod:
+            return player
+        elif self.strength + p1Mod < player.strength + p2Mod:
+            return self
 
     def setLocation(self, x, y):
         self.X = x
