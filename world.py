@@ -99,8 +99,10 @@ class World:
 
     #Checks to see if a player has landed on (collided) another player
     def checkCollisions(self):
+        removedList = []
+
         for player in self.playerList:
-            if len(self.world[player.X][player.Y]) > 1:
+            if len(self.world[player.X][player.Y]) > 1 :
                 for item in self.world[player.X][player.Y]:
                     if item != "food" and item != player:
                         foodPresent = "food" in self.world[player.X][player.Y]
@@ -121,11 +123,14 @@ class World:
                             if result:
                                 self.deathCount += 1
                                 self.fightCount += 1
-                                print("Player: ", player.num)
-                                print("Item:", item.num)
-                                print("removing player: ", result.num)
+
                                 self.world[player.X][player.Y].remove(result)
                                 self.playerList.remove(result)
+                                removedList.append(result)
+
+                                if result == player:
+                                    break
+
 
     def checkDeath(self):
         for player in self.playerList:

@@ -101,7 +101,7 @@ class Player:
     def interactionDecision(self, player, foodPresent):
         Mnum = random.normalvariate(5, 1.5)
         Fnum = random.normalvariate(5, 1.5)
-        print("Food: ", foodPresent)
+
         #Players decide to mate, return 'M' for mate
         if self.sex != player.sex and abs(player.attractiveness - self.attractiveness) < 2:
         #if self.sex != player.sex and self.attractiveness >= Mnum and player.attractiveness >= Mnum:
