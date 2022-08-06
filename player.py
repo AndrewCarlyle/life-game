@@ -103,10 +103,11 @@ class Player:
         Fnum = random.normalvariate(5, 1.5)
 
         #Players decide to mate, return 'M' for mate
-        if self.sex != player.sex and self.attractiveness >= Mnum and player.attractiveness >= Mnum:
+        if self.sex != player.sex and abs(player.attractiveness - self.attractiveness) < 2:
+        #if self.sex != player.sex and self.attractiveness >= Mnum and player.attractiveness >= Mnum:
             return 'M'
         #One or both players decide to fight, return 'F' for fight
-        elif self.friendliness < Fnum or player.friendliness < Fnum:
+        elif self.friendliness < Fnum and player.friendliness < Fnum:
             return 'F'
 
     #Determines the outcome when two player decide to fight, returns the loser
