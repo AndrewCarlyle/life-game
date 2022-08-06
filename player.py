@@ -98,16 +98,16 @@ class Player:
             return (x,y)
 
     #When two players are in the same square, they must decide to fight, mate, or be friendly
-    def interactionDecision(self, player):
+    def interactionDecision(self, player, foodPresent):
         Mnum = random.normalvariate(5, 1.5)
         Fnum = random.normalvariate(5, 1.5)
-
+        print("Food: ", foodPresent)
         #Players decide to mate, return 'M' for mate
         if self.sex != player.sex and abs(player.attractiveness - self.attractiveness) < 2:
         #if self.sex != player.sex and self.attractiveness >= Mnum and player.attractiveness >= Mnum:
             return 'M'
         #One or both players decide to fight, return 'F' for fight
-        elif self.friendliness < Fnum and player.friendliness < Fnum:
+        elif foodPresent and self.friendliness < Fnum and player.friendliness < Fnum:
             return 'F'
 
     #Determines the outcome when two player decide to fight, returns the loser

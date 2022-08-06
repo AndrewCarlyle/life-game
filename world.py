@@ -103,8 +103,10 @@ class World:
             if len(self.world[player.X][player.Y]) > 1:
                 for item in self.world[player.X][player.Y]:
                     if item != "food" and item != player:
+                        foodPresent = "food" in self.world[player.X][player.Y]
+
                         #Players may choose to fight, reproduce or remain friendly
-                        choice = player.interactionDecision(item)
+                        choice = player.interactionDecision(item, foodPresent)
 
                         if choice == 'M':
                             result = player.reproduce(item)
@@ -119,6 +121,9 @@ class World:
                             if result:
                                 self.deathCount += 1
                                 self.fightCount += 1
+                                print("Player: ", player.num)
+                                print("Item:", item.num)
+                                print("removing player: ", result.num)
                                 self.world[player.X][player.Y].remove(result)
                                 self.playerList.remove(result)
 
