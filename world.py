@@ -11,6 +11,10 @@ class World:
         self.xSize = xSize
         self.ySize = ySize
 
+        self.deathCount = 0
+        self.birthCount = 0
+        self.fightCount = 0
+
         #init the 3D list
         for x in range(xSize):
             self.world.append([])
@@ -98,18 +102,31 @@ class World:
         for player in self.playerList:
             if len(self.world[player.X][player.Y]) > 1:
                 for item in self.world[player.X][player.Y]:
-                    if item != "food":
+                    if item != "food" and item != player:
                         #Players may choose to fight, reproduce or remain friendly
-                        result = player.reproduce(item)
+                        choice = player.interactionDecision(item)
 
-                        if result != False:
-                            self.addPlayer(result, player.X, player.Y)
-                            print("Adding new player...")
+                        if choice == 'M':
+                            result = player.reproduce(item)
+
+                            if result != False:
+                                self.addPlayer(result, player.X, player.Y)
+                                self.birthCount += 1
+
+                        elif choice == 'F':
+                            result = player.fight(item)
+
+                            if result:
+                                self.deathCount += 1
+                                self.fightCount += 1
+                                self.world[player.X][player.Y].remove(result)
+                                self.playerList.remove(result)
 
     def checkDeath(self):
         for player in self.playerList:
             if player.hunger >= 10 or player.energy <= 0:
-                print("Player has died...")
+                self.deathCount += 1
+                #print("Player has died...")
                 #print("Energy: ", player.energy)
                 #print("Hunger: ", player.hunger)
                 self.world[player.X][player.Y].remove(player)

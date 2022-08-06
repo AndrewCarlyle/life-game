@@ -25,8 +25,8 @@ def main():
         wd.addFood(4)
         wd.agePlayers()
         wd.resetReproduce()
-        
-        print("End of turn: ", i)
+
+        #print("End of turn: ", i)
 
         if result:
             print("Game over, all players are dead...")
@@ -35,6 +35,9 @@ def main():
     wd.print()
     print("End of game...")
     print("Number of players currently alive: ", len(wd.playerList))
+    print("Total number of births: ", wd.birthCount)
+    print("Total number of deaths: ", wd.deathCount)
+    print("Total number of fight deaths: ", wd.fightCount)
 
 if __name__ == "__main__":
     main()
