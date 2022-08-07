@@ -105,10 +105,19 @@ class World:
             if len(self.world[player.X][player.Y]) > 1 :
                 for item in self.world[player.X][player.Y]:
                     if item != "food" and item != player:
-                        foodPresent = "food" in self.world[player.X][player.Y]
+                        #foodPresent = "food" in self.world[player.X][player.Y]
+                        #Find the numbe of food in the current square
+                        numFood = 0
+                        numPlayers = 0
+
+                        for i in self.world[player.X][player.Y]:
+                            if i == "food":
+                                numFood += 1
+                            else:
+                                numPlayers += 1
 
                         #Players may choose to fight, reproduce or remain friendly
-                        choice = player.interactionDecision(item, foodPresent)
+                        choice = player.interactionDecision(item, numFood, numPlayers)
 
                         if choice == 'M':
                             result = player.reproduce(item)
@@ -136,9 +145,6 @@ class World:
         for player in self.playerList:
             if player.hunger >= 10 or player.energy <= 0:
                 self.deathCount += 1
-                #print("Player has died...")
-                #print("Energy: ", player.energy)
-                #print("Hunger: ", player.hunger)
                 self.world[player.X][player.Y].remove(player)
                 self.playerList.remove(player)
 
