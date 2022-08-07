@@ -5,7 +5,7 @@ import random
 #Default settings to start the game
 NUM_PLAYERS = 20
 NUM_FOOD = 20
-NUM_ROUNDS = 100
+NUM_ROUNDS = 400
 
 def main():
     #init players
@@ -38,6 +38,9 @@ def main():
     print("Total number of births: ", wd.birthCount)
     print("Total number of deaths: ", wd.deathCount)
     print("Total number of fight deaths: ", wd.fightCount)
+
+    for plr in wd.playerList:
+        plr.print()
 
 if __name__ == "__main__":
     main()

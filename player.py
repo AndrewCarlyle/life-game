@@ -42,6 +42,9 @@ class Player:
         self.num = PLAYER_NUM
         PLAYER_NUM += 1
 
+    def print(self):
+        print("Player", self.num, "attributes:\nSpeed:", self.speed, "Strength:", self.strength, "Attractiveness:", self.attractiveness, "IQ:", self.iq, "Fertility:", self.fertility, "Friendliness:", self.friendliness)
+
     def getOlder(self):
         self.age = self.age + 1
 
