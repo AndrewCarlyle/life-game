@@ -159,3 +159,16 @@ class World:
     def resetReproduce(self):
         for player in self.playerList:
             player.reproduceStatus = False
+
+    def printAvgStats(self):
+        speedTotal = 0
+        strengthTotal = 0
+        attractivenessTotal = 0
+        iqTotal = 0
+        fertilityTotal = 0
+        friendlinessTotal = 0
+        hungerTotal = 0
+        energyTotal = 0
+        ageTotal = 0
+
+        for player in self.playerList:
