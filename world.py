@@ -172,3 +172,12 @@ class World:
         ageTotal = 0
 
         for player in self.playerList:
+            speedTotal += player.speed
+            strengthTotal += player.strength
+            attractivenessTotal += player.attractiveness
+            iqTotal += player.iq
+            fertilityTotal += player.fertility
+            friendlinessTotal += player.friendliness
+            hungerTotal += player.hunger
+            energyTotal += player.energy
+            ageTotal += player.age
