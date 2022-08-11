@@ -40,7 +40,9 @@ def main():
     print("Total number of fight deaths: ", wd.fightCount)
 
     for plr in wd.playerList:
-        plr.print()
+        plr.print
+
+    wd.printAvgStats()
 
 if __name__ == "__main__":
     main()
