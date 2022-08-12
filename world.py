@@ -181,3 +181,15 @@ class World:
             hungerTotal += player.hunger
             energyTotal += player.energy
             ageTotal += player.age
+
+        str = "Average speed: " + (speedTotal/len(self.playerList)) +
+              "\nAverage strength: " + (strengthTotal/len(self.playerList)) +
+              "\nAverage attractiveness: " + (attractivenessTotal/len(self.playerList)) +
+              "\nAverage iq: " + (iqTotal/len(self.playerList)) +
+              "\nAverage fertility: " + (fertilityTotal/len(self.playerList)) +
+              "\nAverage friendliness: " + (friendlinessTotal/len(self.playerList)) +
+              "\nAverage hunger: " + (hungerTotal/len(self.playerList)) +
+              "\nAverage energy: " + (energyTotal/len(self.playerList)) +
+              "\nAverage age: " + (ageTotal/len(self.playerList)))
+
+        print(str)
