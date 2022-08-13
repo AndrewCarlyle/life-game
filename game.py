@@ -3,11 +3,12 @@ import world
 import random
 
 #Default settings to start the game
-NUM_PLAYERS = 20
-NUM_FOOD = 20
+NUM_PLAYERS = 50
+NUM_FOOD = 100
+FOOD_PER_TURN = 15
 NUM_ROUNDS = 400
-X_SIZE = 25
-Y_SIZE = 25
+X_SIZE = 50
+Y_SIZE = 50
 
 def main():
     #init players
@@ -24,7 +25,7 @@ def main():
         wd.checkCollisions()
         wd.checkFood()
         result = wd.checkDeath()
-        wd.addFood(4)
+        wd.addFood(FOOD_PER_TURN)
         wd.agePlayers()
         wd.resetReproduce()
 
@@ -44,7 +45,8 @@ def main():
     for plr in wd.playerList:
         plr.print
 
-    wd.printAvgStats()
+    if len(wd.playerList) > 0:
+        wd.printAvgStats()
 
 if __name__ == "__main__":
     main()
