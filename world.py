@@ -182,14 +182,14 @@ class World:
             energyTotal += player.energy
             ageTotal += player.age
 
-        result = ("Average speed: " + str(speedTotal/len(self.playerList)) +
-                  "\nAverage strength: " + str(strengthTotal/len(self.playerList)) +
-                  "\nAverage attractiveness: " + str(attractivenessTotal/len(self.playerList)) +
-                  "\nAverage iq: " + str(iqTotal/len(self.playerList)) +
-                  "\nAverage fertility: " + str(fertilityTotal/len(self.playerList)) +
-                  "\nAverage friendliness: " + str(friendlinessTotal/len(self.playerList)) +
-                  "\nAverage hunger: " + str(hungerTotal/len(self.playerList)) +
-                  "\nAverage energy: " + str(energyTotal/len(self.playerList)) +
-                  "\nAverage age: " + str(ageTotal/len(self.playerList)))
+        result = ("\nAverage speed:          " + str(round(speedTotal/len(self.playerList), 2)) +
+                  "\nAverage strength:       " + str(round(strengthTotal/len(self.playerList), 2)) +
+                  "\nAverage attractiveness: " + str(round(attractivenessTotal/len(self.playerList), 2)) +
+                  "\nAverage iq:             " + str(round(iqTotal/len(self.playerList), 2)) +
+                  "\nAverage fertility:      " + str(round(fertilityTotal/len(self.playerList), 2)) +
+                  "\nAverage friendliness:   " + str(round(friendlinessTotal/len(self.playerList), 2)) +
+                  "\nAverage hunger:         " + str(round(hungerTotal/len(self.playerList), 2)) +
+                  "\nAverage energy:         " + str(round(energyTotal/len(self.playerList), 2)) +
+                  "\nAverage age:            " + str(round(ageTotal/len(self.playerList), 2)))
 
         print(result)
