@@ -91,7 +91,7 @@ class World:
                     if item == "food":
                         #Resets to zero for now, but could just go down by a certain amount (or varying amount --> different food)
                         player.hunger = 0
-                        player.energy += 10
+                        player.energy = min(100, player.energy + 10)
 
                         self.world[player.X][player.Y].remove(item)
 
