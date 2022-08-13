@@ -38,6 +38,8 @@ class Player:
         self.X = 0
         self.Y = 0
 
+        self.children = []
+
         global PLAYER_NUM
         self.num = PLAYER_NUM
         PLAYER_NUM += 1
@@ -58,13 +60,17 @@ class Player:
             self.reproduceStatus = True
             player.reproduceStatus = True
 
-            return Player(False,
+            child = Player(False,
                           speed=round((self.speed+player.speed)/2 + random.randint(-1, 1)),
                           strength=round((self.strength+player.strength)/2 + random.randint(-1, 1)),
                           attractiveness=round((self.attractiveness+player.attractiveness)/2 + random.randint(-1, 1)),
                           iq=round((self.iq+player.iq)/2 + random.randint(-10, 10)),
                           fertility=round((self.fertility+player.fertility)/2 + random.randint(-1, 1)),
-                          friendliness=round((self.friendliness+player.friendliness)/2 + random.randint(-1, 1)),)
+                          friendliness=round((self.friendliness+player.friendliness)/2 + random.randint(-1, 1)))
+
+            self.children.append(child)
+            player.children.append(child)
+            return child
         else:
             return False
 
@@ -109,7 +115,7 @@ class Player:
         if self.sex != player.sex and abs(player.attractiveness - self.attractiveness) < 2:
             return 'M'
         #Both players decide to fight, return 'F' for fight
-        elif numFood > 0 and numFood < numPlayers and self.friendliness < Fnum and player.friendliness < Fnum:
+        elif numFood > 0 and numFood < numPlayers and self.friendliness < Fnum and player.friendliness < Fnum and (not player in self.children) and (not self in player.children):
             return 'F'
 
     #Determines the outcome when two player decide to fight, returns the loser
