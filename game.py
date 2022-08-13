@@ -6,6 +6,8 @@ import random
 NUM_PLAYERS = 20
 NUM_FOOD = 20
 NUM_ROUNDS = 400
+X_SIZE = 25
+Y_SIZE = 25
 
 def main():
     #init players
@@ -13,7 +15,7 @@ def main():
     for i in range(NUM_PLAYERS):
         playerList.append(player.Player(True))
 
-    wd = world.World(playerList, NUM_FOOD)
+    wd = world.World(playerList, NUM_FOOD, X_SIZE, Y_SIZE)
 
     for i in range(1,NUM_ROUNDS+1):
         #wd.print()
