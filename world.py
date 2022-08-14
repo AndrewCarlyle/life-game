@@ -167,6 +167,7 @@ class World:
         iqTotal = 0
         fertilityTotal = 0
         friendlinessTotal = 0
+        visionTotal = 0
         hungerTotal = 0
         energyTotal = 0
         ageTotal = 0
@@ -178,6 +179,7 @@ class World:
             iqTotal += player.iq
             fertilityTotal += player.fertility
             friendlinessTotal += player.friendliness
+            visionTotal += player.vision
             hungerTotal += player.hunger
             energyTotal += player.energy
             ageTotal += player.age
@@ -188,6 +190,7 @@ class World:
                   "\nAverage iq:             " + str(round(iqTotal/len(self.playerList), 2)) +
                   "\nAverage fertility:      " + str(round(fertilityTotal/len(self.playerList), 2)) +
                   "\nAverage friendliness:   " + str(round(friendlinessTotal/len(self.playerList), 2)) +
+                  "\nAverage vision:         " + str(round(visionTotal/len(self.playerList), 2)) +
                   "\nAverage hunger:         " + str(round(hungerTotal/len(self.playerList), 2)) +
                   "\nAverage energy:         " + str(round(energyTotal/len(self.playerList), 2)) +
                   "\nAverage age:            " + str(round(ageTotal/len(self.playerList), 2)))

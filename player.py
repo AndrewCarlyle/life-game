@@ -13,6 +13,7 @@ class Player:
                  iq=None, #int
                  fertility=None, #int
                  friendliness=None, #int - how likely the player is to be friendly (mate, share) vs start conflict with another player
+                 vision=None #int
                  ):
         if rand:
             self.sex = random.choice(['M', 'F'])
@@ -22,6 +23,7 @@ class Player:
             self.iq = round(random.normalvariate(100, 15))
             self.fertility = round(random.normalvariate(5, 1.5))
             self.friendliness = round(random.normalvariate(5, 1.5))
+            self.vision = round(random.normalvariate(5, 1.5))
         else:
             self.sex = sex
             self.speed = speed
@@ -30,6 +32,7 @@ class Player:
             self.iq = iq
             self.fertility = fertility
             self.friendliness = friendliness
+            self.vision = vision
 
         self.hunger = 0
         self.energy = 75
@@ -66,7 +69,8 @@ class Player:
                           attractiveness=round((self.attractiveness+player.attractiveness)/2 + random.randint(-1, 1)),
                           iq=round((self.iq+player.iq)/2 + random.randint(-10, 10)),
                           fertility=round((self.fertility+player.fertility)/2 + random.randint(-1, 1)),
-                          friendliness=round((self.friendliness+player.friendliness)/2 + random.randint(-1, 1)))
+                          friendliness=round((self.friendliness+player.friendliness)/2 + random.randint(-1, 1)),
+                          vision=round((self.vision+player.vision)/2 + random.randint(-1, 1)))
 
             self.children.append(child)
             player.children.append(child)
