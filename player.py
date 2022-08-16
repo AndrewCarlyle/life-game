@@ -84,9 +84,9 @@ class Player:
         foodInRange = []
         playersInRange = []
 
-        #Loop through squares within range
-        for x in range(max(0, self.X-self.speed), min(self.X+self.speed, world.xSize-1)):
-            remainingRange = self.speed - abs(self.X - x)
+        #Loop through squares within range (vision) to look for players/food
+        for x in range(max(0, self.X-self.vision), min(self.X+self.vision, world.xSize-1)):
+            remainingRange = self.vision - abs(self.X - x)
             for y in range(max(0, self.Y-remainingRange), min(self.Y+remainingRange, world.ySize-1)):
                 for item in world.world[x][y]:
                     if item == "food":
@@ -102,6 +102,8 @@ class Player:
                 if food["distance"] < closest["distance"]:
                     closest = food
 
+            #if closest["distance"] > self.speed:
+            #loop until distance = speed
             return (closest["x"] - self.X, closest["y"] - self.Y)
         else:
             #random direction/distance
