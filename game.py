@@ -17,6 +17,7 @@ def main():
         playerList.append(player.Player(True))
 
     wd = world.World(playerList, NUM_FOOD, X_SIZE, Y_SIZE)
+    wd.printAvgStats()
 
     for i in range(1,NUM_ROUNDS+1):
         #wd.print()
