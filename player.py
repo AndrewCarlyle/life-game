@@ -102,8 +102,12 @@ class Player:
                 if food["distance"] < closest["distance"]:
                     closest = food
 
-            #if closest["distance"] > self.speed:
-            #loop until distance = speed
+            if closest["distance"] > self.speed:
+                #loop until distance = speed
+                decision = (closest["x"] - self.X, closest["y"] - self.Y)
+
+                return decision
+                
             return (closest["x"] - self.X, closest["y"] - self.Y)
         else:
             #random direction/distance
