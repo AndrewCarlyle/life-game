@@ -106,8 +106,16 @@ class Player:
                 #loop until distance = speed
                 decision = (closest["x"] - self.X, closest["y"] - self.Y)
 
+                for i in range(closest["distance"] - self.speed):
+                    if decision[0] != 0:
+                        #move one closer to 0, whether the current num is above or below 0
+                        decision[0] -= decision[0] / abs(decision[0])
+                    else:
+                        #move one closer to 0, whether the current num is above or below 0
+                        decision[1] -= decision[1] / abs(decision[1])
+
                 return decision
-                
+
             return (closest["x"] - self.X, closest["y"] - self.Y)
         else:
             #random direction/distance
