@@ -12,3 +12,5 @@ TODO:
 - Use a simple GUI to display the world/players
 - Add water to work in a similar way as food currently does? --> Also means adding thirst attribute
 - Cap child attributes at 10? (with minimum of 0 as well?)
+- Reduce number of fight deaths
+- Stop husband + wife from killing each other?
