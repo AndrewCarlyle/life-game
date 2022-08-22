@@ -6,6 +6,7 @@ Current rules/game logic:
 2. A player dies if their energy gets to zero, or their hunger gets to 10
 3. All players currently limited to reproducing once / turn, new players cannot reproduce in their first turn
 4. Parents and their children cannot fight
+5. New child players currently spawn at a random location, this can be toggled using RANDOM_NEW_PLAYER_LOCATION in world.py
 
 TODO:
 - Update movement energy so that energy lost is based on % of speed used, rather than distance moved? --> reward faster players
