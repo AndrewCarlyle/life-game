@@ -1,5 +1,7 @@
 from random import randint
 
+RANDOM_NEW_PLAYER_LOCATION = True
+
 #class used to keep track of the players/food using a data structure
 #The data strucutre is a 3D list, which represents a 2D world, where each place
 #in the world has a list of player food (the list for a space can be empty)
@@ -36,11 +38,9 @@ class World:
             self.world[x][y].append("food")
 
     def addPlayer(self, player, x=-1, y=-1):
-        if x == -1:
+        if x == -1 or y == -1:
             x = randint(0, self.xSize-1)
-
-        if y == -1:
-            y=randint(0, self.ySize-1)
+            y = randint(0, self.ySize-1)
 
         player.setLocation(x, y)
 
@@ -123,7 +123,11 @@ class World:
                             result = player.reproduce(item)
 
                             if result != False:
-                                self.addPlayer(result, player.X, player.Y)
+                                if RANDOM_NEW_PLAYER_LOCATION:
+                                    self.addPlayer(result)
+                                else:
+                                    self.addPlayer(result, player.X, player.Y)
+
                                 self.birthCount += 1
 
                         elif choice == 'F':
