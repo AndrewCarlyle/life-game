@@ -97,10 +97,18 @@ class Player:
 
         if foodInRange:
             closest = foodInRange[0]
+            closestEmpty = None
 
             for food in foodInRange:
                 if food["distance"] < closest["distance"]:
                     closest = food
+
+                #Avoid fight and go to different food if closer
+                if (closestEmpty == None or food["distance"] < closestEmpty["distance"]) and type(self) not in world.world[food["x"]][food["y"]]:
+                    closestEmpty = food
+
+            if closestEmpty != None:
+                closest = closestEmpty
 
             if closest["distance"] > self.speed:
                 #loop until distance = speed
