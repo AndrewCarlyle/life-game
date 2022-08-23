@@ -42,6 +42,7 @@ class Player:
         self.Y = 0
 
         self.children = []
+        self.friends = []
 
         global PLAYER_NUM
         self.num = PLAYER_NUM
@@ -141,8 +142,11 @@ class Player:
         if self.sex != player.sex and abs(player.attractiveness - self.attractiveness) < 2:
             return 'M'
         #Both players decide to fight, return 'F' for fight
-        elif numFood > 0 and numFood < numPlayers and self.friendliness < Fnum and player.friendliness < Fnum and (not player in self.children) and (not self in player.children):
+        elif numFood > 0 and numFood < numPlayers and self.friendliness < Fnum and player.friendliness < Fnum and (not player in self.children) and (not self in player.children) and (not self in player.friends):
             return 'F'
+        elif player not in self.friends:
+            self.friends.append(player)
+            player.friends.append(self)
 
     #Determines the outcome when two player decide to fight, returns the loser
     def fight(self, player):
