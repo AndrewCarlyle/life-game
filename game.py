@@ -5,7 +5,7 @@ import random
 #Default settings to start the game
 NUM_PLAYERS = 50
 NUM_FOOD = 100
-FOOD_PER_TURN = 15
+FOOD_PER_TURN = 25
 NUM_ROUNDS = 400
 X_SIZE = 50
 Y_SIZE = 50
