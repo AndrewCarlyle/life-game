@@ -15,4 +15,4 @@ TODO:
 - Cap child attributes at 10? (with minimum of 0 as well?)
 - Reduce number of fight deaths
 - Stop husband + wife from killing each other?
-- Fix issue where players can't eat food on the edges
+- Add a list of friends for each player
