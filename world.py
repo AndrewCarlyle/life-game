@@ -60,7 +60,7 @@ class World:
 
             #Add player to new location
             self.world[player.X][player.Y].append(player)
-            player.energy -= abs(move[0]) + abs(move[1])
+            player.energy -= int((abs(move[0]) + abs(move[1])) / player.speed * 10) 
 
     def print(self):
         for row in self.world:

@@ -9,7 +9,6 @@ Current rules/game logic:
 5. New child players currently spawn at a random location, this can be toggled using RANDOM_NEW_PLAYER_LOCATION in world.py
 
 TODO:
-- Update movement energy so that energy lost is based on % of speed used, rather than distance moved? --> reward faster players
 - Use a simple GUI to display the world/players
 - Add water to work in a similar way as food currently does? --> Also means adding thirst attribute
 - Cap child attributes at 10? (with minimum of 0 as well?)
