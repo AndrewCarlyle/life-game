@@ -55,6 +55,11 @@ class Player:
         self.age = self.age + 1
 
     def reproduce(self, player):
+        #Players are mating and should not kill each other in the future
+        if player not in self.friends:
+            self.friends.append(player)
+            player.friends.append(self)
+
         if self.sex == player.sex or self.reproduceStatus or player.reproduceStatus:
             return False
 
