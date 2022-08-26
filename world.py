@@ -1,4 +1,5 @@
 from random import randint
+import easygraphics
 
 RANDOM_NEW_PLAYER_LOCATION = True
 
@@ -60,7 +61,7 @@ class World:
 
             #Add player to new location
             self.world[player.X][player.Y].append(player)
-            player.energy -= int((abs(move[0]) + abs(move[1])) / player.speed * 10) 
+            player.energy -= int((abs(move[0]) + abs(move[1])) / player.speed * 10)
 
     def print(self):
         for row in self.world:
@@ -200,3 +201,5 @@ class World:
                   "\nAverage age:            " + str(round(ageTotal/len(self.playerList), 2)))
 
         print(result)
+
+    def drawWorld(self):
