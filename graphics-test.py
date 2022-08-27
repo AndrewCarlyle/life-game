@@ -1,9 +1,10 @@
 from easygraphics import *
-import time
 
-init_graph(640, 480)
-set_render_mode(RenderMode.RENDER_MANUAL)
+def main():
+    init_graph(400, 400)
+    set_color(Color.RED)
+    rect(10,10,13,13)
+    pause()
+    close_graph()
 
-x=0
-set_color(Color.BLUE)
-draw_ellipse(x + 100, 200, 100, 100)
+easy_run(main)
