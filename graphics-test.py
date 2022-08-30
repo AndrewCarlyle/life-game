@@ -8,3 +8,8 @@ def main():
     close_graph()
 
 easy_run(main)
+
+def drawWorld(world):
+    for x in range(len(world)):
+        for y in range(len(world[0])):
+            #draw square
