@@ -11,5 +11,11 @@ easy_run(main)
 
 def drawWorld(world):
     for x in range(len(world)):
-        for y in range(len(world[0])):
-            #draw square
+        for y in range(len(world[x])):
+            if len(world[x][y]) > 1:
+                #color green
+            elif world[x][y] == ['food']:
+                #color yellow
+            elif len(world[x][y]) == 1:
+                #color red
+            #else color stays white
