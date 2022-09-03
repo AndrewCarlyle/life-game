@@ -1,14 +1,15 @@
 import player
 import world
 import random
+import image
 
 #Default settings to start the game
 NUM_PLAYERS = 50
 NUM_FOOD = 100
 FOOD_PER_TURN = 25
 NUM_ROUNDS = 400
-X_SIZE = 50
-Y_SIZE = 50
+X_SIZE = 80
+Y_SIZE = 80
 
 def main():
     #init players
@@ -18,6 +19,8 @@ def main():
 
     wd = world.World(playerList, NUM_FOOD, X_SIZE, Y_SIZE)
     wd.printAvgStats()
+
+    img = image.Image(wd)
 
     for i in range(1,NUM_ROUNDS+1):
         #wd.print()
@@ -29,6 +32,9 @@ def main():
         wd.addFood(FOOD_PER_TURN)
         wd.agePlayers()
         wd.resetReproduce()
+
+        img.refreshImage()
+        break
 
         #print("End of turn: ", i)
 
