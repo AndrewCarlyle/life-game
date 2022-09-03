@@ -1,6 +1,6 @@
 from easygraphics import *
 
-class draw:
+class image:
     def __init__(self):
         print("test")
     #def __init__(self, World):
@@ -29,5 +29,5 @@ class draw:
     def refreshImage(self):
         easy_run(self.main)
 
-d = draw()
+d = image()
 d.refreshImage()
