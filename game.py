@@ -2,6 +2,7 @@ import player
 import world
 import random
 import image
+from time import sleep
 
 #Default settings to start the game
 NUM_PLAYERS = 50
@@ -21,6 +22,7 @@ def main():
     wd.printAvgStats()
 
     img = image.Image(wd)
+    img.startImage()
 
     for i in range(1,NUM_ROUNDS+1):
         #wd.print()
@@ -34,7 +36,7 @@ def main():
         wd.resetReproduce()
 
         img.refreshImage()
-        break
+        sleep(1)
 
         #print("End of turn: ", i)
 
