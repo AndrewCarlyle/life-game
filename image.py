@@ -1,15 +1,12 @@
 from easygraphics import *
 
-class image:
-    def __init__(self):
-        print("test")
-    #def __init__(self, World):
-    #    self.world = World
+class Image:
+    def __init__(self, world):
+        self.world = world.world
 
     def main(self):
-        init_graph(1000, 1000)
+        init_graph(800, 800)
         set_color(Color.RED)
-        rect(20,20,39,39)
         self.drawWorld(self.world)
         pause()
         close_graph()
@@ -19,15 +16,16 @@ class image:
             for y in range(len(world[x])):
                 #Make this color darker based on how many items are there?
                 if len(world[x][y]) > 1:
-                    set_color(Color.GREEN)
-                elif world[x][y] == ['food']:
-                    set_color(Color.YELLOW)
-                elif len(world[x][y]) == 1:
                     set_color(Color.RED)
-                #else color stays white
+                elif world[x][y] == ['food']:
+                    set_color(Color.GREEN)
+                elif len(world[x][y]) == 1:
+                    set_color(Color.YELLOW)
+                else:
+                    set_color(Color.WHITE)
+
+                #May need to change from +10 to +9?
+                rect(x*10,y*10,x*10+10,y*10+10)
 
     def refreshImage(self):
         easy_run(self.main)
-
-d = image()
-d.refreshImage()
