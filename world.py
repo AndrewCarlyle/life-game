@@ -201,5 +201,3 @@ class World:
                   "\nAverage age:            " + str(round(ageTotal/len(self.playerList), 2)))
 
         print(result)
-
-    def drawWorld(self):
