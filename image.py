@@ -8,13 +8,14 @@ class Image:
     def drawWorld(self):
         for x in range(len(self.world)):
             for y in range(len(self.world[x])):
-                #Make this color darker based on how many items are there?
-                if len(self.world[x][y]) > 1:
-                    set_color(Color.RED)
-                elif self.world[x][y] == ['food']:
+
+                if all(z == "food" for z in self.world[x][y]) and len(self.world[x][y]) > 0:
                     set_color(Color.GREEN)
-                elif len(self.world[x][y]) == 1:
-                    set_color(Color.YELLOW)
+                #Make this color darker based on how many items are there?
+                elif len(self.world[x][y]) > 0:
+                    set_color(Color.RED)
+                #elif len(self.world[x][y]) == 1:
+                #    set_color(Color.DARK_YELLOW)
                 else:
                     set_color(Color.WHITE)
 
