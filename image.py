@@ -3,11 +3,7 @@ from easygraphics import *
 class Image:
     def __init__(self, world):
         self.world = world.world
-
-    def start(self):
-        init_graph(800, 800)
-        self.drawWorld()
-        return
+        init_graph(800,800)
 
     def drawWorld(self):
         for x in range(len(self.world)):
@@ -24,11 +20,3 @@ class Image:
 
                 #May need to change from +10 to +9?
                 rect(x*10,y*10,x*10+9,y*10+9)
-
-        return
-
-    def refreshImage(self):
-        easy_run(self.drawWorld)
-
-    def startImage(self):
-        easy_run(self.start)

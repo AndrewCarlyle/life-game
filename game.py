@@ -22,7 +22,7 @@ def main():
     wd.printAvgStats()
 
     img = image.Image(wd)
-    img.startImage()
+    img.drawWorld()
 
     for i in range(1,NUM_ROUNDS+1):
         #wd.print()
@@ -35,7 +35,7 @@ def main():
         wd.agePlayers()
         wd.resetReproduce()
 
-        img.refreshImage()
+        img.drawWorld()
         sleep(1)
 
         #print("End of turn: ", i)
