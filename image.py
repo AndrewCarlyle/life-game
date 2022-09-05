@@ -19,3 +19,8 @@ class Image:
 
                 #May need to change from +10 to +9?
                 fill_rect(x*10,y*10,x*10+9,y*10+9)
+
+    def endGame(self):
+        #Wait for player to click
+        pause()
+        close_graph()

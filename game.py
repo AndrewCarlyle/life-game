@@ -11,6 +11,7 @@ FOOD_PER_TURN = 25
 NUM_ROUNDS = 400
 X_SIZE = 80
 Y_SIZE = 80
+TURN_TIME = 0.25
 
 def main():
     #init players
@@ -36,7 +37,7 @@ def main():
         wd.resetReproduce()
 
         img.drawWorld()
-        sleep(1)
+        sleep(TURN_TIME)
 
         #print("End of turn: ", i)
 
@@ -52,10 +53,14 @@ def main():
     print("Total number of fight deaths: ", wd.fightCount)
 
     for plr in wd.playerList:
-        plr.print
+        plr.print()
 
     if len(wd.playerList) > 0:
         wd.printAvgStats()
+
+    print("Click Image to exit.")
+
+    img.endGame()
 
 if __name__ == "__main__":
     main()
