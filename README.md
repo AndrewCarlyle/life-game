@@ -12,3 +12,4 @@ TODO:
 - Add water to work in a similar way as food currently does? --> Also means adding thirst attribute
 - Cap child attributes at 10? (with minimum of 0 as well?)
 - Use strength just to determine who gets food, not have player kill each other
+- Add in possibility of death due to health conditions
