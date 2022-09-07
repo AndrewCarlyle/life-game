@@ -8,10 +8,11 @@ from time import sleep
 NUM_PLAYERS = 50
 NUM_FOOD = 100
 FOOD_PER_TURN = 25
-NUM_ROUNDS = 400
+NUM_ROUNDS = 4000
 X_SIZE = 80
 Y_SIZE = 80
 TURN_TIME = 0.25
+GUI_ENABLED = False
 
 def main():
     #init players
@@ -22,8 +23,9 @@ def main():
     wd = world.World(playerList, NUM_FOOD, X_SIZE, Y_SIZE)
     wd.printAvgStats()
 
-    img = image.Image(wd)
-    img.drawWorld()
+    if GUI_ENABLED:
+        img = image.Image(wd)
+        img.drawWorld()
 
     for i in range(1,NUM_ROUNDS+1):
         #wd.print()
@@ -36,8 +38,9 @@ def main():
         wd.agePlayers()
         wd.resetReproduce()
 
-        img.drawWorld()
-        sleep(TURN_TIME)
+        if GUI_ENABLED:
+            img.drawWorld()
+            sleep(TURN_TIME)
 
         #print("End of turn: ", i)
 
@@ -45,22 +48,22 @@ def main():
             print("Game over, all players are dead...")
             break
 
-    wd.print()
+    #wd.print()
     print("End of game...")
     print("Number of players currently alive: ", len(wd.playerList))
     print("Total number of births: ", wd.birthCount)
     print("Total number of deaths: ", wd.deathCount)
     print("Total number of fight deaths: ", wd.fightCount)
 
-    for plr in wd.playerList:
-        plr.print()
+    #for plr in wd.playerList:
+    #    plr.print()
 
     if len(wd.playerList) > 0:
         wd.printAvgStats()
 
-    print("Click Image to exit.")
-
-    img.endGame()
+    if GUI_ENABLED:
+        print("Click Image to exit.")
+        img.endGame()
 
 if __name__ == "__main__":
     main()
