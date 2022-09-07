@@ -145,10 +145,15 @@ class World:
                                 if result == player:
                                     break
 
+    def checkOldAgeDeath(self, player):
+        if player.age > 80 and randint(0, 120 - player.age) == 0:
+            return True
+        else:
+            return False
 
     def checkDeath(self):
         for player in self.playerList:
-            if player.hunger >= 10 or player.energy <= 0:
+            if player.hunger >= 10 or player.energy <= 0 or self.checkOldAgeDeath(player):
                 self.deathCount += 1
                 self.world[player.X][player.Y].remove(player)
                 self.playerList.remove(player)
